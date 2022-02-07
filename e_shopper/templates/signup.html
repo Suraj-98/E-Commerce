@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block maincontent %}
+	
+	<section id="form"><!--form-->
+		<div class="container">
+				<div class="col-sm-4">
+					<div class="signup-form"><!--sign up form-->
+						<h2>New User Signup!</h2>
+						<form method="POST">
+							{% csrf_token %}
+		                   
+	                        {% for form in form %}
+	                        {{form.label_tag}} {{ form}} {{form.error|striptags}}
+	                         {% endfor %}
+                             <button class="btn btn-outline-warning"  type="submit">signup</button>
+						</form>
+						if you have an account <a href="http://localhost:8000/e_shopper/signinpage">Signin</a>
+					</div><!--/sign up form-->
+				</div>
+			</div>
+		</div>
+	</section><!--/form-->
+	
+	{% endblock %}

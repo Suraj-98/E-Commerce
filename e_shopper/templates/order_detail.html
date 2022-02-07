@@ -1,0 +1,84 @@
+{% extends "base.html"%}
+{% load crispy_forms_tags  %}
+{% block maincontent %}
+	
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="left-sidebar">
+						<div class="price-range"><!--price-range-->
+						</div><!--price-range-->
+					</div>
+				</div>
+				<div class="col-sm-9">
+					<div class="blog-post-area">
+						<h2 class="title text-center">Your Order Detail</h2>
+						<div class="single-blog-post">
+                            {% for i in order%}
+							<h3>{{i.product}}</h3>
+							<div class="post-meta">
+								<ul>
+									<li><i class="fa fa-user"></i>{{request.user}}</li>
+									<li><i class="fa fa-clock-o"></i>{{i.date_created.time}}</li>
+									<li><i class="fa fa-calendar"></i>{{i.date_created.date}}</li>
+								</ul>
+							</div>
+							<a href="">
+                                <img src="{{i.image}}" alt="" class="card-img-top" height="200px" style="width:50%"onclick="onClick(this)" class="w3-hover-opacity">
+							</a>
+                            <div class="price-range">
+                                <h2 class="title text-center">Shipping Details</h2>
+                                <div class="container">
+                            <td class="cart_price">
+                                <h4><p>Address :- {{i.address}}</p></h4>
+                             </td>
+                             <td class="cart_price">
+                                <h4><p>State :- {{i.state}}</p></h4>
+                             </td>
+                             <td class="cart_quantity">
+                                 <div class="cart_quantity_button">
+                                     <h4>Mobile :- {{i.mobile_no}}</h4>
+                                 </div>
+                             </td>
+                             <td class="cart_total">
+                                 <h4><p class="cart_total_price">Zipcode :- {{ i.zipcode }}</p></h4>
+                             </td>
+							</div>
+						</div>
+                    </div>
+
+                        <div class="price-range">
+                            <h2 class="title text-center">Price Details</h2>
+                            <div class="container">
+                            <td class="cart_price">
+                                <h4><p>Selling Price :- <tr>{{i.price}}</tr></p></h4>
+                             </td>
+                             <td class="cart_price">
+                                <h4><p>Extra Discount :- -89</p></h4>
+                             </td>
+                             <td class="cart_quantity">
+                                 <div class="cart_quantity_button">
+                                     <h4>Shipping Fee:- 40 </h4>
+                                 </div>
+                             </td>
+                             <td class="cart_quantity">
+                                <div class="cart_quantity_button">
+                                    <h4>Shipping Discount :- -40 </h4>
+                                </div>
+                            </td>
+                            <td class="cart_quantity">
+                                <div class="cart_quantity_button">
+                                    <h4>Total Amount :- {{i.total}}</h4>
+                                </div>
+                            </td>
+                            </div>
+                        </div>
+                            {% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	{% endblock %}

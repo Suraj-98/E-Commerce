@@ -1,0 +1,39 @@
+{% extends "base.html"%}
+{% load crispy_forms_tags  %}
+{% block maincontent %}
+	
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="left-sidebar">
+						<div class="price-range"><!--price-range-->
+						</div><!--price-range-->
+					</div>
+				</div>
+				<div class="col-sm-9">
+					<div class="blog-post-area">
+						<h2 class="title text-center">Your Wish Products</h2>
+						<div class="single-blog-post">
+                            {% for i in wish%}
+							<h3>{{i.wished_item}}</h3>
+							<div class="post-meta">
+								<ul>
+									<li><i class="fa fa-user"></i>{{request.user}}</li>
+									<li><i class="fa fa-clock-o"></i>{{i.added_date.time}}</li>
+									<li><i class="fa fa-calendar"></i>{{i.added_date.date}}</li>
+								</ul>
+							</div>
+							<a href="">
+                                <img src="{{i.wished_item.image.url}}" alt="" class="card-img-top" height="200px" style="width:50%"onclick="onClick(this)" class="w3-hover-opacity">
+							</a>
+							<a  class="btn btn-primary" href="{% url 'product_details' i.id %}">View</a>
+                            {% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html"%}
+{% load crispy_forms_tags  %}
+{% block maincontent %}
+{% load static %}
+<style>
+	body { 
+	  background-image: url("{% static 'photo.jpg' %}");
+	  background-repeat: repeat;
+	  background-position: center; 
+
+	}
+
+    button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: rgb(245, 181, 61);
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+	</style>
+   <section id="form"><!--form-->
+    <div class="container">
+            <div class="col-sm-4">
+                <div class="signup-form"><!--sign up form-->
+                    <div class="body">
+                        
+                        
+                        <p style="color:rgb(147, 210, 247); font-size:50px;">Check out our new collection for Men, Women and Kids!</p>
+                        <p style="color:whitesmoke; font-size: 30px;">   Collection for everyones, Millions of collections here</p>
+                        
+                        <a href="http://localhost:8000/e_shopper/signinpage"><button class="btn btn-outline-warning  btn-sm" type="submit" ><i class="fa fa-unlock"></i>Sign in</button></a>
+                        
+                        
+                        </div>
+                </div><!--/sign up form-->
+            </div>
+        </div>
+    </div>
+</section><!--/form-->
+
+
+
+
+
+{% endblock %}
